@@ -1,0 +1,196 @@
+import type { ReportCard } from '../types';
+
+export const mockReportCards: ReportCard[] = [
+  {
+    id: 'report-001',
+    type: 'sales-activity',
+    title: 'Sales Weekly Activity',
+    description: 'Visit counts, products detailed, HCP coverage by rep and territory',
+    recipients: ['Bahaa (Sales Director)', 'Ahmed (Regional)', 'Sales Managers'],
+    lastGenerated: '2026-04-07T08:00:00',
+    cadence: 'Weekly',
+    status: 'ready',
+  },
+  {
+    id: 'report-002',
+    type: 'commercial-performance',
+    title: 'Commercial Performance',
+    description: 'ASP trends, consumption data, volume potentiality by product',
+    recipients: ['Bahaa (Sales Director)', 'Sales Managers'],
+    lastGenerated: '2026-04-07T08:00:00',
+    cadence: 'Weekly',
+    status: 'ready',
+  },
+  {
+    id: 'report-003',
+    type: 'hcp-engagement',
+    title: 'HCP Engagement',
+    description: 'Tier coverage, visit frequency vs target, engagement scores',
+    recipients: ['Sales Managers'],
+    lastGenerated: '2026-04-07T08:00:00',
+    cadence: 'Weekly',
+    status: 'ready',
+  },
+  {
+    id: 'report-004',
+    type: 'rep-performance',
+    title: 'Rep Performance Scorecards',
+    description: 'Per-rep: visits, recap quality, CRM compliance, training scores',
+    recipients: ['Sales Managers', 'HR'],
+    lastGenerated: '2026-04-01T08:00:00',
+    cadence: 'Monthly',
+    status: 'ready',
+  },
+  {
+    id: 'report-005',
+    type: 'competitive-intelligence',
+    title: 'Competitive Intelligence',
+    description: 'Competitor product mentions, brand perception, trending topics',
+    recipients: ['Diana (Brand)', 'Gaye (Brand)'],
+    lastGenerated: '2026-04-07T08:00:00',
+    cadence: 'Weekly',
+    status: 'ready',
+  },
+  {
+    id: 'report-006',
+    type: 'off-label-query',
+    title: 'Off-Label Query Report',
+    description: 'All off-label queries by product, rep, HCP, and resolution status',
+    recipients: ['Fouad (Medical Affairs)'],
+    lastGenerated: '2026-04-07T08:00:00',
+    cadence: 'Weekly',
+    status: 'ready',
+  },
+  {
+    id: 'report-007',
+    type: 'pv-alerts',
+    title: 'PV Alerts & Monthly Summary',
+    description: 'Real-time and monthly pharmacovigilance alert tracking',
+    recipients: ['Fouad (PV Team)', 'Medical Affairs'],
+    lastGenerated: '2026-04-08T11:30:00',
+    cadence: 'Real-time + Monthly',
+    status: 'ready',
+  },
+  {
+    id: 'report-008',
+    type: 'training-gap',
+    title: 'Training Gap Analysis',
+    description: 'Per-rep, per-product scores, gap heatmap, below-threshold alerts',
+    recipients: ['L&D Team', 'Sales Management'],
+    lastGenerated: '2026-04-07T08:00:00',
+    cadence: 'Weekly',
+    status: 'ready',
+  },
+  {
+    id: 'report-009',
+    type: 'compliance-audit',
+    title: 'Compliance Audit Log',
+    description: 'All flagged interactions, routing actions, resolution log',
+    recipients: ['Jessica (Compliance)'],
+    lastGenerated: '2026-04-01T08:00:00',
+    cadence: 'Monthly',
+    status: 'ready',
+  },
+  {
+    id: 'report-010',
+    type: 'platform-adoption',
+    title: 'Platform Adoption Metrics',
+    description: 'Active users, feature usage, recap completion rates, app sessions',
+    recipients: ['Ahmed (Regional)', 'AllysAI Team'],
+    lastGenerated: '2026-04-07T08:00:00',
+    cadence: 'Weekly',
+    status: 'ready',
+  },
+];
+
+// Weekly sales activity data
+export const mockSalesActivityData = {
+  weekLabel: 'W14 2026 (Apr 7–13)',
+  summary: {
+    totalVisits: 23,
+    visitTarget: 28,
+    uniqueHCPs: 17,
+    tier1Coverage: '85%',
+    recapCompletionRate: '78%',
+    crmEntryRate: '65%',
+  },
+  byRep: [
+    { name: 'James Mitchell', visits: 9, target: 10, hcps: 7, recaps: 7, crm: 5 },
+    { name: 'Sarah Al-Khoury', visits: 8, target: 10, hcps: 6, recaps: 6, crm: 6 },
+    { name: 'Omar Hassan', visits: 6, target: 8, hcps: 4, recaps: 5, crm: 3 },
+  ],
+  byProduct: [
+    { product: 'Xeomin', mentions: 14, sentiment: 82 },
+    { product: 'Belotero', mentions: 10, sentiment: 75 },
+    { product: 'Radiesse', mentions: 8, sentiment: 78 },
+    { product: 'Ultherapy', mentions: 5, sentiment: 85 },
+  ],
+  weeklyTrend: [
+    { week: 'W10', visits: 19 },
+    { week: 'W11', visits: 21 },
+    { week: 'W12', visits: 25 },
+    { week: 'W13', visits: 22 },
+    { week: 'W14', visits: 23 },
+  ],
+};
+
+export const mockCompetitiveData = {
+  weekLabel: 'W14 2026',
+  totalMentions: 12,
+  byCompetitor: [
+    { name: 'Botox', mentions: 5, products: ['Xeomin'], sentiment: 'neutral' },
+    { name: 'Juvederm', mentions: 3, products: ['Belotero'], sentiment: 'negative' },
+    { name: 'Restylane', mentions: 2, products: ['Belotero'], sentiment: 'neutral' },
+    { name: 'Dysport', mentions: 1, products: ['Xeomin'], sentiment: 'neutral' },
+    { name: 'Sculptra', mentions: 1, products: ['Radiesse'], sentiment: 'positive' },
+  ],
+  recentMentions: [
+    { date: '2026-04-08', rep: 'James Mitchell', hcp: 'Dr. Sara Al-Hashim', competitor: 'Restylane', product: 'Belotero', context: 'HCP asked for comparison data' },
+    { date: '2026-04-08', rep: 'James Mitchell', hcp: 'Dr. Layla Al-Rashid', competitor: 'Botox', product: 'Xeomin', context: 'HCP referenced competitor pricing' },
+    { date: '2026-04-03', rep: 'Sarah Al-Khoury', hcp: 'Dr. Ahmad Al-Otaibi', competitor: 'Sculptra', product: 'Radiesse', context: 'Colleague switching to competitor' },
+  ],
+};
+
+export const mockComplianceData = {
+  period: 'Apr 1–8, 2026',
+  offLabelQueries: [
+    { date: '2026-04-09', rep: 'James Mitchell', product: 'Xeomin', query: 'Brow lifting in patients over 65', status: 'Logged - Medical Affairs notified', id: 'OL-2026-031' },
+    { date: '2026-04-07', rep: 'James Mitchell', product: 'Xeomin', query: 'Hyperhidrosis treatment data', status: 'Logged - Medical Affairs notified', id: 'OL-2026-029' },
+    { date: '2026-04-06', rep: 'Sarah Al-Khoury', product: 'Belotero', query: 'Use in patients under 18', status: 'Logged - escalated to Fouad', id: 'OL-2026-028' },
+  ],
+  pvAlerts: [
+    { date: '2026-04-08', rep: 'James Mitchell', product: 'Radiesse', event: 'Persistent swelling and pain >3 weeks', severity: 'Moderate', status: 'PV team notified', id: 'PV-2026-042', acknowledged: true },
+  ],
+  totalOffLabel: 3,
+  totalPVAlerts: 1,
+  resolvedOffLabel: 1,
+  resolvedPV: 1,
+};
+
+export const mockAdoptionData = {
+  weekLabel: 'W14 2026',
+  activeUsers: 9,
+  totalUsers: 12,
+  adoptionRate: '75%',
+  featureUsage: [
+    { feature: 'Product Expert (Chat)', sessions: 34, avgPerUser: 3.8 },
+    { feature: 'Battle Cards', views: 18, avgPerUser: 2.0 },
+    { feature: 'Voice Recaps', recorded: 13, avgPerUser: 1.4 },
+    { feature: 'Micro-Training Quiz', completed: 21, avgPerUser: 2.3 },
+    { feature: 'Follow-up Email', generated: 9, avgPerUser: 1.0 },
+  ],
+  weeklyActive: [
+    { week: 'W10', users: 5 },
+    { week: 'W11', users: 7 },
+    { week: 'W12', users: 8 },
+    { week: 'W13', users: 9 },
+    { week: 'W14', users: 9 },
+  ],
+  recapStats: {
+    total: 18,
+    completed: 14,
+    pendingCRM: 4,
+    crmConfirmed: 10,
+    emailSent: 8,
+  },
+};
