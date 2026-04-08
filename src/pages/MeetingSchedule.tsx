@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, MapPin, Clock, ChevronRight, CheckCircle, AlertCircle, Brain, BookOpen } from 'lucide-react';
+import { Calendar, MapPin, ChevronRight, CheckCircle, AlertCircle, BookOpen } from 'lucide-react';
 import { format, isToday, isTomorrow } from 'date-fns';
 import { getUpcomingMeetings, getPastMeetings } from '../data/mockMeetings';
 import type { PrepStatus } from '../types';

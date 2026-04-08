@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Search, Filter, Download, Eye, AlertCircle, AlertTriangle, CheckCircle, TrendingUp } from 'lucide-react';
+import { Search, Filter, Download, Eye, AlertCircle, AlertTriangle, TrendingUp } from 'lucide-react';
 import { format } from 'date-fns';
 import { mockChatSessions } from '../data/mockChats';
 import type { ComplianceFlag, ProductBrand } from '../types';
@@ -39,7 +38,6 @@ const FLAG_FILTERS: { label: string; value: ComplianceFlag | 'all' }[] = [
 ];
 
 export default function AuditTrail() {
-  const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [flagFilter, setFlagFilter] = useState<ComplianceFlag | 'all'>('all');
   const [productFilter, setProductFilter] = useState<ProductBrand | 'all'>('all');
@@ -192,7 +190,7 @@ export default function AuditTrail() {
                       )}
                     </td>
                     <td className="px-4 py-3">
-                      <button className="btn-ghost py-1 px-2 text-xs">
+                      <button onClick={() => setSelectedQuery(selectedQuery === q ? null : q)} className="btn-ghost py-1 px-2 text-xs">
                         <Eye size={13} /> View
                       </button>
                     </td>

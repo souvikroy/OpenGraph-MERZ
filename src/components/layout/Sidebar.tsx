@@ -10,59 +10,10 @@ import {
   ChevronLeft,
   ChevronRight,
   Brain,
-  Users,
   GraduationCap,
 } from 'lucide-react';
 import { getUnreadCount } from '../../data/mockNotifications';
 
-interface NavItem {
-  label: string;
-  icon: React.ReactNode;
-  path: string;
-  badge?: number;
-  children?: { label: string; path: string }[];
-}
-
-const navItems: NavItem[] = [
-  {
-    label: 'Product Expert',
-    icon: <Brain size={18} />,
-    path: '/product-expert',
-    children: [
-      { label: 'Chat', path: '/product-expert/chat' },
-      { label: 'Audit Trail', path: '/product-expert/audit' },
-    ],
-  },
-  {
-    label: 'Pre-Meeting',
-    icon: <Calendar size={18} />,
-    path: '/sales-companion/pre-meeting',
-    children: [
-      { label: 'Meetings', path: '/sales-companion/pre-meeting/meetings' },
-      { label: 'Training Quiz', path: '/sales-companion/pre-meeting/quiz' },
-      { label: 'Scorecards', path: '/sales-companion/pre-meeting/scorecards' },
-    ],
-  },
-  {
-    label: 'Post-Meeting',
-    icon: <Mic size={18} />,
-    path: '/sales-companion/post-meeting',
-    children: [
-      { label: 'Voice Recap', path: '/sales-companion/post-meeting/recap' },
-      { label: 'Past Meetings', path: '/sales-companion/post-meeting/history' },
-    ],
-  },
-  {
-    label: 'Reports',
-    icon: <BarChart2 size={18} />,
-    path: '/reports',
-  },
-  {
-    label: 'HCP Directory',
-    icon: <Users size={18} />,
-    path: '/hcps',
-  },
-];
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
