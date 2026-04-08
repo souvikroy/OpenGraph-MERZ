@@ -30,9 +30,9 @@ export default function TrainingScorecard() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-center gap-3">
-          <button onClick={() => navigate('/sales-companion/pre-meeting/meetings')} className="btn-ghost">
+          <button onClick={() => navigate('/sales-companion/pre-meeting/meetings')} className="btn-ghost shrink-0">
             <ArrowLeft size={15} />
           </button>
           <div>
@@ -43,7 +43,7 @@ export default function TrainingScorecard() {
             <p className="page-subtitle">Per-rep product knowledge scores and trend analysis</p>
           </div>
         </div>
-        <button onClick={() => navigate('/sales-companion/pre-meeting/quiz')} className="btn-primary">
+        <button onClick={() => navigate('/sales-companion/pre-meeting/quiz')} className="btn-primary self-start sm:self-auto shrink-0">
           <BookOpen size={14} />
           Start New Quiz
         </button>

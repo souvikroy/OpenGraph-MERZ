@@ -95,14 +95,14 @@
   }
 
   .page-title {
-    @apply text-xl font-bold text-merz-slate;
+    @apply text-lg md:text-xl font-bold text-merz-slate;
   }
   .page-subtitle {
     @apply text-sm text-merz-slate-light mt-0.5;
   }
 
   .nav-item {
-    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer;
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer min-h-[44px] md:min-h-0;
   }
   .nav-item-active {
     @apply nav-item bg-merz-teal-light text-merz-teal;

@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Bell, LogOut, ChevronRight, Home } from 'lucide-react';
+import { Bell, LogOut, ChevronRight, Home, Menu } from 'lucide-react';
 import { mockCurrentUser } from '../../data/mockUser';
 import { getUnreadCount } from '../../data/mockNotifications';
 
@@ -26,7 +26,11 @@ const routeLabels: Record<string, string> = {
   'hcps': 'HCP Directory',
 };
 
-export default function Header() {
+interface HeaderProps {
+  onMenuToggle: () => void;
+}
+
+export default function Header({ onMenuToggle }: HeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const unread = getUnreadCount();
@@ -34,7 +38,16 @@ export default function Header() {
   const crumbs = location.pathname.split('/').filter(Boolean);
 
   return (
-    <header className="h-14 bg-white border-b border-merz-border flex items-center px-4 gap-4 shrink-0 z-10">
+    <header className="h-14 bg-white border-b border-merz-border flex items-center px-4 gap-3 shrink-0 z-10">
+      {/* Hamburger — mobile only */}
+      <button
+        onClick={onMenuToggle}
+        className="md:hidden w-9 h-9 rounded-lg flex items-center justify-center text-merz-slate-mid hover:bg-gray-100 transition-colors shrink-0"
+        aria-label="Open navigation menu"
+      >
+        <Menu size={20} />
+      </button>
+
       {/* Breadcrumbs */}
       <nav className="flex-1 flex items-center gap-1.5 text-sm overflow-hidden">
         <button
@@ -55,7 +68,7 @@ export default function Header() {
               ) : (
                 <button
                   onClick={() => navigate(path)}
-                  className="text-merz-slate-light hover:text-merz-teal transition-colors truncate"
+                  className="text-merz-slate-light hover:text-merz-teal transition-colors truncate hidden sm:inline"
                 >
                   {label}
                 </button>

@@ -11,12 +11,12 @@ export default function MeetingHistory() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <div>
           <h1 className="page-title">Post-Meeting</h1>
           <p className="page-subtitle">Review past meetings, complete recaps, and manage follow-ups</p>
         </div>
-        <button onClick={() => navigate('/sales-companion/post-meeting/recap')} className="btn-primary">
+        <button onClick={() => navigate('/sales-companion/post-meeting/recap')} className="btn-primary self-start sm:self-auto shrink-0">
           <Mic size={14} />
           Record New Recap
         </button>

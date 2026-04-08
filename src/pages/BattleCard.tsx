@@ -78,12 +78,12 @@ export default function BattleCard() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       {/* Back + actions */}
-      <div className="flex items-center justify-between">
-        <button onClick={() => navigate('/sales-companion/pre-meeting/meetings')} className="btn-ghost">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <button onClick={() => navigate('/sales-companion/pre-meeting/meetings')} className="btn-ghost self-start">
           <ArrowLeft size={15} />
           Meetings
         </button>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <button
             onClick={() => navigate('/sales-companion/pre-meeting/quiz')}
             className="btn-secondary"

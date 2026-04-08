@@ -309,15 +309,17 @@ james.mitchell@merz.ae`;
   // ── Recap Form ────────────────────────────────────────────────────────────
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      <div className="flex items-center gap-3">
-        <button onClick={() => navigate('/sales-companion/post-meeting/recap')} className="btn-ghost">
-          <ArrowLeft size={15} />
-        </button>
-        <div>
-          <h1 className="page-title">Structured Recap</h1>
-          <p className="page-subtitle">Dr. Sara Al-Hashim · Apr 1, 2026 · Kaya Clinic JBR</p>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
+          <button onClick={() => navigate('/sales-companion/post-meeting/recap')} className="btn-ghost shrink-0">
+            <ArrowLeft size={15} />
+          </button>
+          <div className="min-w-0">
+            <h1 className="page-title">Structured Recap</h1>
+            <p className="page-subtitle">Dr. Sara Al-Hashim · Apr 1, 2026 · Kaya Clinic JBR</p>
+          </div>
         </div>
-        <div className="ml-auto">
+        <div className="sm:ml-auto shrink-0">
           <div className="flex items-center gap-1.5 text-xs text-merz-teal bg-merz-teal-light px-3 py-1.5 rounded-lg">
             <Mic size={12} />
             AI-extracted from voice

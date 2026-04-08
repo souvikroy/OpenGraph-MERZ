@@ -35,21 +35,23 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* Welcome header */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <div>
           <h1 className="page-title">{greeting}, {mockCurrentUser.name.split(' ')[0]}</h1>
           <p className="page-subtitle">
             {format(now, 'EEEE, d MMMM yyyy')} · {mockCurrentUser.territory}, {mockCurrentUser.market}
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 shrink-0">
           <button onClick={() => navigate('/product-expert/chat')} className="btn-primary">
             <MessageSquare size={15} />
-            Ask Product Expert
+            <span className="hidden sm:inline">Ask Product Expert</span>
+            <span className="sm:hidden">Ask AI</span>
           </button>
           <button onClick={() => navigate('/sales-companion/pre-meeting/meetings')} className="btn-secondary">
             <Calendar size={15} />
-            Today's Meetings
+            <span className="hidden sm:inline">Today's Meetings</span>
+            <span className="sm:hidden">Meetings</span>
           </button>
         </div>
       </div>
@@ -249,7 +251,7 @@ export default function Dashboard() {
           </button>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm min-w-[500px]">
             <thead>
               <tr className="border-b border-merz-border bg-gray-50">
                 <th className="text-left px-4 py-2.5 text-xs font-semibold text-merz-slate-light uppercase tracking-wide">Time</th>

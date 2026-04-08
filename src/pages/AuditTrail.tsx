@@ -59,12 +59,12 @@ export default function AuditTrail() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <div>
           <h1 className="page-title">Audit Trail</h1>
           <p className="page-subtitle">Complete log of all Product Expert queries and AI responses</p>
         </div>
-        <button className="btn-secondary">
+        <button className="btn-secondary self-start sm:self-auto shrink-0">
           <Download size={14} />
           Export CSV
         </button>
@@ -133,9 +133,9 @@ export default function AuditTrail() {
         </div>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         {/* Table */}
-        <div className={`card overflow-hidden ${selectedQuery ? 'flex-1' : 'w-full'}`}>
+        <div className={`card overflow-hidden ${selectedQuery ? 'md:flex-1' : 'w-full'}`}>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -208,7 +208,7 @@ export default function AuditTrail() {
 
         {/* Detail panel */}
         {selectedQuery && (
-          <div className="w-80 shrink-0 card p-4 space-y-4 h-fit">
+          <div className="w-full md:w-80 md:shrink-0 card p-4 space-y-4 h-fit">
             <div className="flex items-center justify-between">
               <p className="text-xs font-bold text-merz-slate-light uppercase tracking-wide">Query Detail</p>
               <button onClick={() => setSelectedQuery(null)} className="text-gray-400 hover:text-gray-600 text-xs">✕</button>

@@ -37,7 +37,7 @@ export default function Reports() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <div>
           <h1 className="page-title flex items-center gap-2">
             <BarChart2 size={20} className="text-merz-teal" />
@@ -45,7 +45,7 @@ export default function Reports() {
           </h1>
           <p className="page-subtitle">Automated reporting for sales, compliance, training, and platform adoption</p>
         </div>
-        <button className="btn-secondary">
+        <button className="btn-secondary self-start sm:self-auto shrink-0">
           <Download size={14} />
           Export All Reports
         </button>
@@ -121,15 +121,15 @@ export default function Reports() {
       {/* Sales Activity */}
       {activeTab === 'sales' && (
         <div className="space-y-5">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <p className="section-header">{mockSalesActivityData.weekLabel}</p>
-            <button className="btn-secondary text-xs">
+            <button className="btn-secondary text-xs self-start sm:self-auto">
               <Download size={12} /> Download PDF
             </button>
           </div>
 
           {/* KPIs */}
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
             {[
               { label: 'Total Visits', value: mockSalesActivityData.summary.totalVisits, sub: `/${mockSalesActivityData.summary.visitTarget} target` },
               { label: 'HCPs Visited', value: mockSalesActivityData.summary.uniqueHCPs, sub: 'unique' },
@@ -184,7 +184,8 @@ export default function Reports() {
             <div className="p-4 border-b border-merz-border">
               <p className="section-header">Rep Performance This Week</p>
             </div>
-            <table className="w-full text-sm">
+            <div className="overflow-x-auto">
+            <table className="w-full text-sm min-w-[600px]">
               <thead>
                 <tr className="border-b border-merz-border bg-gray-50">
                   {['Rep', 'Visits', 'Target', 'Attainment', 'HCPs', 'Recaps', 'CRM Entries'].map(h => (
@@ -229,6 +230,7 @@ export default function Reports() {
                 })}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       )}
@@ -236,9 +238,9 @@ export default function Reports() {
       {/* Competitive Intelligence */}
       {activeTab === 'competitive' && (
         <div className="space-y-5">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <p className="section-header">{mockCompetitiveData.weekLabel} · {mockCompetitiveData.totalMentions} competitor mentions</p>
-            <button className="btn-secondary text-xs"><Download size={12} /> Download</button>
+            <button className="btn-secondary text-xs self-start sm:self-auto"><Download size={12} /> Download</button>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -296,7 +298,8 @@ export default function Reports() {
             <div className="p-4 border-b border-merz-border">
               <p className="section-header">Recent Competitive Mentions Log</p>
             </div>
-            <table className="w-full text-sm">
+            <div className="overflow-x-auto">
+            <table className="w-full text-sm min-w-[560px]">
               <thead>
                 <tr className="bg-gray-50 border-b border-merz-border">
                   {['Date', 'Rep', 'HCP', 'Competitor', 'Our Product', 'Context'].map(h => (
@@ -317,6 +320,7 @@ export default function Reports() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       )}
@@ -324,9 +328,9 @@ export default function Reports() {
       {/* Compliance & Audit */}
       {activeTab === 'compliance' && (
         <div className="space-y-5">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <p className="section-header">Period: {mockComplianceData.period}</p>
-            <button className="btn-secondary text-xs"><Download size={12} /> Export Audit Log</button>
+            <button className="btn-secondary text-xs self-start sm:self-auto"><Download size={12} /> Export Audit Log</button>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -349,7 +353,8 @@ export default function Reports() {
               <AlertTriangle size={15} className="text-compliance-off-label" />
               <span className="section-header">Off-Label Query Log</span>
             </div>
-            <table className="w-full text-sm">
+            <div className="overflow-x-auto">
+            <table className="w-full text-sm min-w-[520px]">
               <thead>
                 <tr className="bg-gray-50 border-b border-merz-border">
                   {['ID', 'Date', 'Rep', 'Product', 'Query Summary', 'Status'].map(h => (
@@ -370,6 +375,7 @@ export default function Reports() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
 
           {/* PV alerts */}
@@ -378,7 +384,8 @@ export default function Reports() {
               <AlertTriangle size={15} className="text-compliance-pv-flag" />
               <span className="section-header">Pharmacovigilance Alerts</span>
             </div>
-            <table className="w-full text-sm">
+            <div className="overflow-x-auto">
+            <table className="w-full text-sm min-w-[580px]">
               <thead>
                 <tr className="bg-gray-50 border-b border-merz-border">
                   {['ID', 'Date', 'Rep', 'Product', 'Event Description', 'Severity', 'Status'].map(h => (
@@ -405,6 +412,7 @@ export default function Reports() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       )}

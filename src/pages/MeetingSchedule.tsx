@@ -46,7 +46,7 @@ export default function MeetingSchedule() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <div>
           <h1 className="page-title flex items-center gap-2">
             <Calendar size={20} className="text-merz-teal" />
@@ -54,7 +54,7 @@ export default function MeetingSchedule() {
           </h1>
           <p className="page-subtitle">View upcoming visits and access pre-meeting preparation</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 shrink-0">
           <button
             onClick={() => navigate('/sales-companion/pre-meeting/quiz')}
             className="btn-secondary"
@@ -72,7 +72,7 @@ export default function MeetingSchedule() {
       </div>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="stat-card">
           <p className="text-xs font-semibold text-merz-slate-light uppercase tracking-wide">Upcoming</p>
           <p className="text-2xl font-bold text-merz-slate mt-1">{upcoming.length}</p>
