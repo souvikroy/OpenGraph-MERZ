@@ -8,6 +8,8 @@ export default {
     extend: {
       colors: {
         merz: {
+          brand: '#32411e',
+          'brand-dark': '#243015',
           teal: '#0097A9',
           'teal-dark': '#007A8A',
           'teal-light': '#E0F5F7',

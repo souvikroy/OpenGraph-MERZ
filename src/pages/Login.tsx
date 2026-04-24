@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Brain, Lock, Mail, Eye, EyeOff, Shield } from 'lucide-react';
+import { Lock, Mail, Eye, EyeOff, Shield } from 'lucide-react';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -14,8 +14,8 @@ export default function Login() {
     e.preventDefault();
     setError('');
     if (!email) { setError('Please enter your email address.'); return; }
-    if (code !== 'MERZ-ALLYSAI-2026' && code !== '') {
-      setError('Invalid access code. Use MERZ-ALLYSAI-2026 for demo.');
+    if (code !== 'MERZ-OPENGRAPH-2026' && code !== '') {
+      setError('Invalid access code. Use MERZ-OPENGRAPH-2026 for demo.');
       return;
     }
     setLoading(true);
@@ -26,7 +26,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-merz-teal via-merz-teal-dark to-slate-800 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-merz-brand via-merz-brand-dark to-slate-800 flex items-center justify-center p-4">
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-white/5 rounded-full" />
@@ -37,13 +37,13 @@ export default function Login() {
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-merz-teal to-merz-teal-dark px-8 pt-8 pb-6">
+          <div className="bg-gradient-to-r from-merz-brand to-merz-brand-dark px-8 pt-8 pb-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                <Brain size={20} className="text-white" />
+              <div className="w-10 h-10 rounded-xl bg-white/95 border border-white/20 flex items-center justify-center p-1.5 overflow-hidden">
+                <img src="/logo.png" alt="" className="w-full h-full object-contain" width={32} height={32} />
               </div>
               <div>
-                <p className="text-white font-bold text-lg leading-tight">AllysAI × Merz</p>
+                <p className="text-white font-bold text-lg leading-tight">OpenGraph × Merz</p>
                 <p className="text-white/70 text-xs">AI Platform for Merz Middle East</p>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function Login() {
                   <input
                     type={showCode ? 'text' : 'password'}
                     className="form-input pr-10"
-                    placeholder="MERZ-ALLYSAI-2026"
+                    placeholder="MERZ-OPENGRAPH-2026"
                     value={code}
                     onChange={e => setCode(e.target.value.toUpperCase())}
                   />
@@ -89,7 +89,7 @@ export default function Login() {
                     {showCode ? <EyeOff size={15} /> : <Eye size={15} />}
                   </button>
                 </div>
-                <p className="text-[11px] text-merz-slate-light mt-1">Demo: use MERZ-ALLYSAI-2026 or leave blank</p>
+                <p className="text-[11px] text-merz-slate-light mt-1">Demo: use MERZ-OPENGRAPH-2026 or leave blank</p>
               </div>
 
               {error && (
@@ -129,7 +129,7 @@ export default function Login() {
 
         {/* Footer */}
         <p className="text-center text-white/50 text-xs mt-6">
-          AllysAI × Merz Middle East · Confidential · Version 1.0 · April 2026
+          OpenGraph × Merz Middle East · Confidential · Version 1.0 · April 2026
         </p>
       </div>
     </div>

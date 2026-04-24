@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { Settings as SettingsIcon, Bell, Brain, Mic, Shield, Check } from 'lucide-react';
 import { mockCurrentUser } from '../data/mockUser';
 
+type NotificationToggleKey = 'pushNotifications' | 'offLabelNotifications' | 'weeklyReportEmail';
+
+const notificationToggles: { key: NotificationToggleKey; label: string; desc: string }[] = [
+  { key: 'pushNotifications', label: 'Push Notifications', desc: 'In-app notifications for meetings, recaps, and alerts' },
+  { key: 'offLabelNotifications', label: 'Off-Label Query Alerts', desc: 'Notify me when a query is flagged as off-label' },
+  { key: 'weeklyReportEmail', label: 'Weekly Report Email', desc: 'Receive weekly sales activity and training score emails' },
+];
+
 export default function Settings() {
   const [saved, setSaved] = useState(false);
   const [settings, setSettings] = useState({
@@ -49,7 +57,7 @@ export default function Settings() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-merz-slate-light mt-3">Profile managed by AllysAI admin. Contact support to update.</p>
+        <p className="text-xs text-merz-slate-light mt-3">Profile managed by your organization admin. Contact support to update.</p>
       </div>
 
       {/* Notifications */}
@@ -59,24 +67,20 @@ export default function Settings() {
           <p className="section-header">Notification Settings</p>
         </div>
 
-        {[
-          { key: 'pushNotifications', label: 'Push Notifications', desc: 'In-app notifications for meetings, recaps, and alerts' },
-          { key: 'offLabelNotifications', label: 'Off-Label Query Alerts', desc: 'Notify me when a query is flagged as off-label' },
-          { key: 'weeklyReportEmail', label: 'Weekly Report Email', desc: 'Receive weekly sales activity and training score emails' },
-        ].map(opt => (
+        {notificationToggles.map(opt => (
           <div key={opt.key} className="flex items-center justify-between py-2">
             <div>
               <p className="text-sm font-medium text-merz-slate">{opt.label}</p>
               <p className="text-xs text-merz-slate-light">{opt.desc}</p>
             </div>
             <button
-              onClick={() => setSettings(s => ({ ...s, [opt.key]: !(s as any)[opt.key] }))}
+              onClick={() => setSettings(s => ({ ...s, [opt.key]: !s[opt.key] }))}
               className={`relative w-10 h-5.5 h-[22px] rounded-full transition-all ${
-                (settings as any)[opt.key] ? 'bg-merz-teal' : 'bg-gray-300'
+                settings[opt.key] ? 'bg-merz-teal' : 'bg-gray-300'
               }`}
             >
               <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-all ${
-                (settings as any)[opt.key] ? 'left-5' : 'left-0.5'
+                settings[opt.key] ? 'left-5' : 'left-0.5'
               }`} />
             </button>
           </div>

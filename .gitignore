@@ -38,6 +38,8 @@ Merz_PRD_vF (1).pdf
 
 # Testing
 coverage/
+playwright-report/
+test-results/
 
 # Misc
 *.local

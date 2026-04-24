@@ -96,7 +96,7 @@ export const mockReportCards: ReportCard[] = [
     type: 'platform-adoption',
     title: 'Platform Adoption Metrics',
     description: 'Active users, feature usage, recap completion rates, app sessions',
-    recipients: ['Ahmed (Regional)', 'AllysAI Team'],
+    recipients: ['Ahmed (Regional)', 'OpenGraph Team'],
     lastGenerated: '2026-04-07T08:00:00',
     cadence: 'Weekly',
     status: 'ready',

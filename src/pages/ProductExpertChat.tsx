@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { format } from 'date-fns';
 import { mockChatSessions } from '../data/mockChats';
-import type { ChatMessage, ProductBrand, ComplianceFlag } from '../types';
+import type { ChatMessage, ChatCitation, ProductBrand, ComplianceFlag } from '../types';
 import ProductBadge from '../components/shared/ProductBadge';
 import ComplianceBadge from '../components/shared/ComplianceBadge';
 
@@ -41,7 +41,7 @@ function getSimulatedResponse(query: string): ChatMessage {
   const lower = query.toLowerCase();
   let response = '';
   let flags: ComplianceFlag[] = ['compliant'];
-  let citations = [];
+  let citations: ChatCitation[] = [];
   let score = 88;
   let routing = '';
 
@@ -113,7 +113,7 @@ function getSimulatedResponse(query: string): ChatMessage {
     content: response,
     timestamp: new Date().toISOString(),
     confidenceScore: score,
-    citations: citations as any,
+    citations,
     complianceFlags: flags,
     routingAction: routing || undefined,
   };

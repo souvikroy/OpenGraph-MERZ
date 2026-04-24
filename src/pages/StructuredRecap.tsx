@@ -419,18 +419,20 @@ james.mitchell@merz.ae`;
 
         {/* Other fields */}
         <div className="card p-4 space-y-4">
-          {[
-            { label: 'Samples Left', key: 'samplesLeft', placeholder: 'e.g. 2 × Xeomin 50U vials' },
-            { label: 'Volume / Units Discussed', key: 'volumeDiscussed', placeholder: 'e.g. 50 units/month current usage' },
-            { label: 'ASP Discussed', key: 'aspDiscussed', placeholder: 'e.g. Standard pricing confirmed' },
-          ].map(field => (
+          {(
+            [
+              { label: 'Samples Left', key: 'samplesLeft' as const, placeholder: 'e.g. 2 × Xeomin 50U vials' },
+              { label: 'Volume / Units Discussed', key: 'volumeDiscussed' as const, placeholder: 'e.g. 50 units/month current usage' },
+              { label: 'ASP Discussed', key: 'aspDiscussed' as const, placeholder: 'e.g. Standard pricing confirmed' },
+            ] as const
+          ).map(field => (
             <div key={field.key}>
               <label className="form-label">{field.label}</label>
               <input
                 type="text"
                 className="form-input"
                 placeholder={field.placeholder}
-                value={(form as any)[field.key]}
+                value={form[field.key]}
                 onChange={e => setForm(f => ({ ...f, [field.key]: e.target.value }))}
               />
             </div>

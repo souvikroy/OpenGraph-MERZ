@@ -458,9 +458,15 @@ export default function Reports() {
             <div className="card p-4">
               <p className="section-header mb-4">Feature Usage This Week</p>
               <div className="space-y-3">
-                {mockAdoptionData.featureUsage.map(f => {
-                  const maxSessions = Math.max(...mockAdoptionData.featureUsage.map(x => (x as any).sessions || (x as any).views || (x as any).recorded || (x as any).completed || (x as any).generated || 0));
-                  const value = (f as any).sessions || (f as any).views || (f as any).recorded || (f as any).completed || (f as any).generated || 0;
+                {(() => {
+                  const featureValue = (f: (typeof mockAdoptionData.featureUsage)[number]) =>
+                    f.sessions ?? f.views ?? f.recorded ?? f.completed ?? f.generated ?? 0;
+                  const maxSessions = Math.max(
+                    0,
+                    ...mockAdoptionData.featureUsage.map(featureValue)
+                  );
+                  return mockAdoptionData.featureUsage.map(f => {
+                    const value = featureValue(f);
                   return (
                     <div key={f.feature}>
                       <div className="flex items-center justify-between mb-1">
@@ -470,12 +476,13 @@ export default function Reports() {
                       <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-merz-teal rounded-full"
-                          style={{ width: `${(value / maxSessions) * 100}%` }}
+                          style={{ width: `${(value / (maxSessions || 1)) * 100}%` }}
                         />
                       </div>
                     </div>
                   );
-                })}
+                });
+                })()}
               </div>
             </div>
           </div>

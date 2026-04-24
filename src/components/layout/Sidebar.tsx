@@ -9,7 +9,6 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
-  Brain,
   GraduationCap,
   X,
 } from 'lucide-react';
@@ -45,11 +44,11 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
     >
       {/* Logo */}
       <div className={`flex items-center gap-3 px-4 py-4 border-b border-merz-border ${collapsed ? 'md:justify-center' : ''}`}>
-        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-merz-teal shrink-0">
-          <Brain size={16} className="text-white" />
+        <div className="flex items-center justify-center w-8 h-8 rounded-lg border border-merz-border bg-white overflow-hidden shrink-0">
+          <img src="/logo.png" alt="" className="w-6 h-6 object-contain" width={24} height={24} />
         </div>
         <div className={collapsed ? 'md:hidden' : ''}>
-          <p className="text-sm font-bold text-merz-slate leading-tight">AllysAI</p>
+          <p className="text-sm font-bold text-merz-slate leading-tight">OpenGraph</p>
           <p className="text-[10px] text-merz-slate-light font-medium tracking-wide uppercase">× Merz</p>
         </div>
         {/* Mobile close button */}

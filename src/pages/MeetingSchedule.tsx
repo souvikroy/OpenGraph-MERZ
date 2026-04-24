@@ -102,7 +102,7 @@ export default function MeetingSchedule() {
         ].map(t => (
           <button
             key={t.key}
-            onClick={() => setTab(t.key as any)}
+            onClick={() => (t.key === 'upcoming' || t.key === 'past' ? setTab(t.key) : null)}
             className={`pb-3 text-sm font-medium transition-colors border-b-2 -mb-px ${
               tab === t.key
                 ? 'text-merz-teal border-merz-teal'
