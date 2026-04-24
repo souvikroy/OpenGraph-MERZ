@@ -3,14 +3,19 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test:e2e": "playwright test",
+    "test:e2e:prod": "npm run build && env PLAYWRIGHT_PROD=1 playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "validate": "npm run lint && npm run build && npm run test:e2e"
+    "validate": "npm run lint && npm run build && npm run test:e2e",
+    "validate:vercel": "npm run lint && npm run test:e2e:prod"
   },
   "dependencies": {
     "clsx": "^2.1.1",
